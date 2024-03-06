@@ -1,0 +1,86 @@
+29,31c29,31
+<     char tmp = s1 + s1 - '0' + carry;
+<     carry = 0;
+<     if(tmp > '9')
+---
+>     char tmp = s1 + s2 - '0' + carry;
+>     carry  = 0;
+>     if (tmp > '9')
+40c40
+< void add_func(char *s1, char *s2, int len1, int len2, int carry)
+---
+> void    add_func(char *s1, char *s2, int len1, int len2, int carry)
+42,45c42,44
+<     char tmp;
+<     int c;
+< 
+<     if (len1 >=0 && len2 >= 0)
+---
+>     char    tmp;
+>     int     c;
+>     if (len1 >= 0 && len2 >= 0)
+62c61
+<         if(carry)
+---
+>         if (carry)
+79c78
+<     *c =tmp;
+---
+>     *c = tmp;
+84c83
+< void    sub_func(char *s1, char* s2, int len1, int len2, int carry, int first)
+---
+> void    sub_func(char *s1, char *s2, int len1, int len2, int carry, int first)
+87,88c86
+< 
+<     if(len1 >= 0 && len2 >= 0)
+---
+>     if (len1 >= 0 && len2 >=0)
+90,91c88,89
+<         carry = get_add_value(s1[len1], s2[len2], carry, &tmp);
+<         if(len1 == 0 && len2 == 0 && tmp == 0)
+---
+>         carry = get_sub_value(s1[len1], s2[len2], carry, &tmp);
+>         if (len1 == 0 && len2 == 0 && tmp == 0)
+99,100c97,98
+<         carry = get_add_value(s1[len1], '0', carry, &tmp);
+<         if(len1 == 0 && tmp == 0)
+---
+>         carry = get_sub_value(s1[len1], '0', carry, &tmp);
+>         if (len1 == 0 && tmp == 0)
+103c101
+<             first = 0;
+---
+>             first  = 0;
+107,109c105,107
+<         {
+<         carry = get_add_value('0', s2[len2], carry, &tmp);
+<         if(len2 == 0 && tmp == 0)
+---
+>     {
+>         carry = get_sub_value('0', s2[len2], carry, &tmp);
+>         if (len2 == 0 && tmp == 0)
+112c110
+<             first = 0;
+---
+>             first  = 0;
+120c118
+<     write (1, &tmp, 1);
+---
+>     write(1, &tmp, 1);
+131c129
+<         add_func(s1 + 1, s2 + 1, len1 - 1, len2 - 1, 0 );
+---
+>         add_func(s1 + 1, s2 + 1, len1 - 1, len2 - 1, 0);
+133c131
+<     else if(s1[0] == '-')
+---
+>     else if (s1[0] == '-')
+154c152
+<         add_func(s1, s2, len1, len2, 0);
+---
+>         add_func(s1, s2, len1, len2, 0);  
+157c155
+< int main(int argc, char **argv)
+---
+> int main(int argc, char ** argv)
